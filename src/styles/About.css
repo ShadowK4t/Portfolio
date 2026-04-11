@@ -1,5 +1,5 @@
 .about {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 70px);
   padding: 4rem 2rem;
   display: flex;
   justify-content: center;
@@ -61,4 +61,33 @@
 
 .skill-tag:hover {
   border-color: #a855f7;
+}
+
+.light .about-title {
+  color: #1a1a1a;
+}
+
+.light .about-text p {
+  color: #555555;
+}
+
+.light .about-skills h2 {
+  color: #1a1a1a;
+}
+
+.light .skill-tag {
+  background-color: #ffffff;
+  color: #7c3aed;
+  border-color: #d8b4fe;
+}
+
+.light .skill-tag:hover {
+  border-color: #7c3aed;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }

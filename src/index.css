@@ -13,3 +13,14 @@ body {
 h1, h2, h3 {
   font-family: 'Space Grotesk', sans-serif;
 }
+
+.app.dark {
+  background-color: #0f0f0f;
+  color: #e2e2e2;
+
+}
+
+.app.light {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+}

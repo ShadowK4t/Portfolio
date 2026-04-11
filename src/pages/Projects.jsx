@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '../styles/Projects.css';
 
 const projects = [
@@ -12,9 +13,9 @@ const projects = [
   {
     id: 2,
     title: "ParkSpot",
-    description: "An Android app that helps users post and find available parking using real-time GPS and location services. Built in Android Studio",
+    description: "An Android app that helps users find available parking using real-time GPS and location services. Built with Jetpack Compose and SQLite for local data persistence.",
     stack: ["Kotlin", "Jetpack Compose", "GPS", "SQLite"],
-    github: "https://github.com/DanielQ-BP/ParkSpot",
+    github: "https://github.com/ShadowK4t/ParkSpot",
     live: null,
   },
   {
@@ -24,38 +25,64 @@ const projects = [
     stack: ["React", "REST API", "CSS"],
     github: "https://github.com/ShadowK4t/Simple_Weather_app-Practice",
     live: "https://simple-weather-app-practice.vercel.app/",
-  }
+  },
 ];
 
 function Projects() {
-  return (
-    <div className='projects'>
-      <div className='projects-content'>
-        <h1 className='projects-title'>Projects</h1>
-        <p className='projects-subtitle'>Things I've built</p>
-        <div className='projects-grid'>
+  const [popup, setPopup] = useState(null);
 
+  function handleCardClick(project) {
+    if (project.live) {
+      setPopup(project);
+    } else {
+      window.open(project.github, '_blank');
+    }
+  }
+
+  function closePopup() {
+    setPopup(null);
+  }
+
+  return (
+    <div className="projects">
+      <div className="projects-content">
+        <h1 className="projects-title">Projects</h1>
+        <p className="projects-subtitle">Things I've built</p>
+        <div className="projects-grid">
           {projects.map((project) => (
-            <div className='project-card' key={project.id}>
-              <h3 className='project-name'>{project.title}</h3>
-              <p className='project-description'>{project.description}</p>
-              <div className='project-stack'>
+            <div
+              className="project-card"
+              key={project.id}
+              onClick={() => handleCardClick(project)}
+            >
+              <h3 className="project-name">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <div className="project-stack">
                 {project.stack.map((tech) => (
-                  <span className='stack-tag' key={tech}>{tech}</span>
+                  <span className="stack-tag" key={tech}>{tech}</span>
                 ))}
               </div>
-              <div className='projects-links'>
-                <a href={project.github} target="_blank" rel="noreferrer" className="project-link">GitHub</a>
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noreferrer" className="project-link">Live</a>
-                )}
-              </div>
+              <p className="project-link">
+                {project.live ? "View Project →" : "View on GitHub →"}
+              </p>
             </div>
           ))}
         </div>
-
       </div>
-      
+
+      {popup && (
+        <div className="popup-overlay" onClick={closePopup}>
+          <div className="popup" onClick={(e) => e.stopPropagation()}>
+            <h3>{popup.title}</h3>
+            <p>Where do you want to go?</p>
+            <div className="popup-buttons">
+              <a href={popup.github} target="_blank" rel="noreferrer" className="popup-btn">GitHub</a>
+              <a href={popup.live} target="_blank" rel="noreferrer" className="popup-btn popup-btn-primary">Live Site</a>
+            </div>
+            <button className="popup-close" onClick={closePopup}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

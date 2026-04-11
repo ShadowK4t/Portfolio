@@ -59,3 +59,28 @@
   color: #e2e2e2;
   font-family: 'DM Sans', sans-serif;
 }
+
+.light .contact-title {
+  color: #1a1a1a;
+}
+
+.light .contact-subtitle {
+  color: #555555;
+}
+
+.light .contact-item {
+  background-color: #ffffff;
+  border-color: #e0e0e0;
+}
+
+.light .contact-item:hover {
+  border-color: #7c3aed;
+}
+
+.light .contact-label {
+  color: #7c3aed;
+}
+
+.light .contact-value {
+  color: #1a1a1a;
+}
