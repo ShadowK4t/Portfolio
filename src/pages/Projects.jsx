@@ -8,7 +8,7 @@ const projects = [
     description: "A fullstack task management web app built for an active game development studio. Similar in concept to Jira — features task assignment, project tracking, and user roles.",
     stack: ["Next.js", "Node.js", "Express", "SQL"],
     github: "https://github.com/ShadowK4t/SquirrelStd",
-    live: null,
+    live: "https://squirrel-std.vercel.app/board",
   },
   {
     id: 2,
