@@ -15,7 +15,7 @@ const projects = [
     title: "ParkSpot",
     description: "An Android app that helps users find available parking using real-time GPS and location services. Built with Jetpack Compose and SQLite for local data persistence.",
     stack: ["Kotlin", "Jetpack Compose", "GPS", "SQLite"],
-    github: "https://github.com/ShadowK4t/ParkSpot",
+    github: "https://github.com/DanielQ-BP/ParkSpot",
     live: null,
   },
   {
